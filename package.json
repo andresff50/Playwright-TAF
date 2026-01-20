@@ -3,13 +3,27 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test",
+    "test:qa": "cross-env ENV=qa npx playwright test",
+    "test:prod": "cross-env ENV=prod npx playwright test",
+    "test:debug": "cross-env LOG_LEVEL=debug npx playwright test",
+    "test:ui": "npx playwright test --ui",
+    "report": "npx playwright show-report",
+    "allure:generate": "allure generate allure-results --clean",
+    "allure:open": "allure open allure-report",
+    "test:allure:qa": "npm run test:qa || npm run allure:generate && npm run allure:open"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.57.0",
-    "@types/node": "^25.0.9"
+    "@types/node": "^25.0.9",
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.2.3",
+    "typescript": "^5.9.3",
+    "winston": "^3.19.0"
   }
 }
