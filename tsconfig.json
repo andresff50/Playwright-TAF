@@ -52,7 +52,7 @@
     "src/**/*",
     "tests/**/*",
     "*.config.ts"
-  ],
+, "allurerc.ts"  ],
   "exclude": [
     "node_modules"
   ]

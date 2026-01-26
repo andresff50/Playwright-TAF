@@ -8,10 +8,15 @@ dotenv.config({ path: path.resolve(__dirname, 'env', `.env.${environment}`) });
 
 export default defineConfig({
   testDir: './tests',
-  reporter: 'html',
+  reporter: [
+    ['list'],
+    ['allure-playwright', { outputFolder: 'allure-results' }]
+  ],
   use: {
     baseURL: process.env.BASE_URL,
-    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+    trace: 'on-first-retry'
   },
 
   projects: [
